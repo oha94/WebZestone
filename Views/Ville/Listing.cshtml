@@ -1,0 +1,41 @@
+﻿@model IEnumerable<WebZstone.Models.Ville>
+
+@{
+    ViewData["Title"] = "Listing";
+}
+
+<h1>Listing</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdV)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Lib)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdV)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lib)
+            </td>
+            <td>
+                @Html.ActionLink("Modification", "Edit", new { id = item.IdV  }) |
+                @Html.ActionLink("Details", "Details", new { id = item.IdV }) |
+                @Html.ActionLink("Suppression", "Delete", new { id = item.IdV })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
